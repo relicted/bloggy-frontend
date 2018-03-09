@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Navigation, {Error404} from './components/navigation';
-import Post from './containers/post/main';
-import User from './containers/account/main';
-
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {store, persistor} from './store';
+import Navigation from './components/navigation';
+import CreateUserForm from './forms/RegisterForm';
+import { PersistGate } from 'redux-persist/integration/react'
 
 class App extends Component {
 
-  render() {return (
-      <BrowserRouter>
-        <div>
-          <Navigation />
-          <div className='container'>
-            <Switch>
-              <Route path='/posts' component={Post}/>
-              <Route path='/users' component={User} />
 
-              <Route component={Error404}/>
-            </Switch>
+  render() {
+    return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <div>
+            <Navigation/>
+            <div className="container">
+              <Switch>
+                <Route exact path='/' render={() => <div>Main Page</div>}/>
+                <Route path='/join' component={CreateUserForm}/>
+                {/*<Route to='/' render={() => <div>Main Page</div>}/>*/}
+              </Switch>
+            </div>
           </div>
-        </div>
-      </BrowserRouter>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
     )
   }
 }
 
-export default connect(state => ({}))(App);
+export default App;
 

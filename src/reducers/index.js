@@ -1,6 +1,7 @@
 import {combineReducers} from 'redux';
 import posts from './models/posts/post';
 import users from './models/accounts/user';
+import activeUser from './activeUser';
 import { reducer as formReducer } from 'redux-form'
 
 
@@ -8,6 +9,11 @@ const appReducer = combineReducers({
   form: formReducer,
   posts,
   users,
+
+
+
+
+  activeUser
 });
 
 
