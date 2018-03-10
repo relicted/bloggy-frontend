@@ -1,17 +1,14 @@
 import React, { Component } from 'react'
-import { Button, Dropdown, Menu } from 'semantic-ui-react'
-import {NavLink, Route} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {connect} from "react-redux";
 import { withRouter } from 'react-router';
-import './navigation.css'
+import './navigation.css';
 
 
 
 class Navigation extends Component {
 
   renderSearch () {
-    const {loading} = this.props;
-
     return (
       <div className='item'>
         <div className="ui icon input">
@@ -24,7 +21,7 @@ class Navigation extends Component {
 
   renderUserMenu() {
     const {activeUser} = this.props;
-    // const activeUser = 'pa';
+
     if (!activeUser) {
       return (
         <div className="right menu">
@@ -39,7 +36,7 @@ class Navigation extends Component {
     } else {
       return (
         <div className="right menu">
-          <div>logout</div>
+
         </div>
       )
     }
