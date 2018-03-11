@@ -4,9 +4,17 @@ import {connect} from "react-redux";
 import { withRouter } from 'react-router';
 import './navigation.css';
 
+import {logout} from '../../actions/user/auth';
 
 
 class Navigation extends Component {
+
+  logOut(){
+    console.log(this.props);
+    const {dispatch, history} = this.props;
+    dispatch(logout());
+    history.push('/')
+  }
 
   renderSearch () {
     return (
@@ -36,7 +44,7 @@ class Navigation extends Component {
     } else {
       return (
         <div className="right menu">
-
+          <a href="" className="item" onClick={this.logOut.bind(this)}>Logout</a>
         </div>
       )
     }
@@ -49,9 +57,6 @@ class Navigation extends Component {
           <div className="left menu">
             <NavLink className="item" exact to='/'>
               Home
-            </NavLink>
-            <NavLink className="item" to='/messages'>
-              Messages
             </NavLink>
           </div>
 
