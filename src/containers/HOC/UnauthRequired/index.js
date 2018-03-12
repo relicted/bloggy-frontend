@@ -9,7 +9,7 @@ export default function(InnerComponent) {
 
     componentDidMount(){
       const {activeUser, history} = this.props;
-      if (activeUser) history.push('/')
+      if (activeUser) history.push('/feed')
     }
 
     render() {

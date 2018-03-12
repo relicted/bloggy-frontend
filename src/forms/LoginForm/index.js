@@ -14,6 +14,7 @@ const validate = (values) => {
     if (!values[key]) {
       errors[key] = 'Required'
     }
+
   });
   return errors
 };
