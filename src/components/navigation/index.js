@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom'
 import {connect} from "react-redux";
 import { withRouter } from 'react-router';
-import './navigation.css';
 
 import {logout} from '../../actions/user/auth';
 
@@ -55,13 +54,10 @@ class Navigation extends Component {
       <div className="ui small menu">
         <div className="container">
           <div className="left menu">
-            <NavLink className="item" exact to='/'>
-              Home
-            </NavLink>
+            {this.renderSearch()}
           </div>
 
           <div className="right menu">
-            {this.renderSearch()}
             {this.renderUserMenu()}
           </div>
 
