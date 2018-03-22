@@ -5,5 +5,5 @@ export const USER = new schema.Entity('USERS');
 
 
 export const POST = new schema.Entity('POSTS', {
-  user: USER,
+  author: USER,
 });

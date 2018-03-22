@@ -8,7 +8,7 @@ import AuthRequired from "./HOC/AuthRequired";
 import Landing from "./landing";
 import Login from "../forms/LoginForm";
 import Feed from "../containers/landing/feed";
-
+import PostForm from '../forms/PostForm';
 
 class Main extends Component {
 
@@ -21,7 +21,8 @@ class Main extends Component {
         <Route path='/join' component={UnauthRequired(CreateUserForm)}/>
         <Route path='/login' component={UnauthRequired(Login)}/>
         <Route path='/feed' component={AuthRequired(Feed)}/>
-        <Route path='/messages' component={AuthRequired(Feed)}/>
+        <Route path='/create' component={AuthRequired(PostForm)}/>
+        {/*<Route path='/messages' component={AuthRequired(Feed)}/>*/}
       </Switch>
     )
   }

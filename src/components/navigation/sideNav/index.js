@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import {NavLink, withRouter} from 'react-router-dom';
-import Websocket from "react-websocket/index";
-
 
 const styles = {
   position: 'fixed',
@@ -12,7 +10,7 @@ class SideNav extends Component {
 
 
   fetchMessages() {
-
+    // ws = new WebSocket('')
     return (
       <div className="ui teal label">
 
@@ -22,7 +20,7 @@ class SideNav extends Component {
 
 	render(){
 		return (
-			<div className='ui fluid' style={styles}>
+      <div className='ui fluid' style={styles}>
         <div className="ui vertical menu">
           <NavLink to='/feed' className="teal item">
             News Feed
